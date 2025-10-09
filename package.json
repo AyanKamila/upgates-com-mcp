@@ -1,7 +1,7 @@
 {
   "name": "upgates-com-mcp",
   "version": "0.1.0",
-  "description": "Model Context Protocol server for Upgates API integration",
+  "description": "Model Context Protocol server for Upgates e-shop API v2 - AI asistent pro automatizaci e-shopu s GDPR anonymizací",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -18,8 +18,17 @@
   },
   "keywords": [
     "mcp",
+    "model-context-protocol",
+    "upgates",
+    "upgates-api",
+    "e-shop",
+    "e-commerce",
     "api",
-    "model-context-protocol"
+    "ai",
+    "gdpr",
+    "anonymization",
+    "czech",
+    "automation"
   ],
   "author": "Lukáš Orčík <OpenMCP - openmcp.cz>",
   "license": "CC-BY-NC-4.0",

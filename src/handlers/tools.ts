@@ -5,6 +5,7 @@
 import { UpgatesClient } from '../upgates-client.js';
 import { NotFoundError, ReadonlyError } from '../errors/index.js';
 import { validateDateRange, validatePagination } from '../validators/index.js';
+import { optimizeListResponse } from '../optimizers/index.js';
 
 /**
  * List of write operations (tools that modify data)
@@ -36,10 +37,16 @@ function checkReadonlyMode(toolName: string, client: UpgatesClient): void {
 }
 
 /**
- * Build query string from parameters
+ * Default values for list operations
  */
-function buildQueryParams(params: Record<string, any>): Record<string, any> {
-  const query: Record<string, any> = {};
+const DEFAULT_PAGE_SIZE = 20; // Optimal for LLM context window
+const DEFAULT_SORT_DIR = 'desc'; // Newest first
+
+/**
+ * Build query string from parameters with defaults
+ */
+function buildQueryParams(params: Record<string, any>, defaults?: Record<string, any>): Record<string, any> {
+  const query: Record<string, any> = { ...defaults };
 
   for (const [key, value] of Object.entries(params)) {
     if (value !== undefined && value !== null) {
@@ -61,15 +68,25 @@ async function handleListOrders(
   validateDateRange(params.creation_time_from, params.creation_time_to);
 
   const endpoint = params.order_number
-    ? `/api/v2/orders/${params.order_number}`
-    : '/api/v2/orders';
+    ? `/orders/${params.order_number}`
+    : '/orders';
 
-  const response = await client.get(endpoint, buildQueryParams(params));
+  // Set defaults: 20 items per page, sorted by creation_time desc (newest first)
+  const defaults = {
+    page: 1,
+    order_by: 'creation_time',
+    order_dir: DEFAULT_SORT_DIR,
+  };
+
+  const response = await client.get(endpoint, buildQueryParams(params, defaults));
+
+  // Optimize response for LLM
+  let data = optimizeListResponse(response.data, 'orders');
 
   // Anonymize customer data in orders
   return client.isAnonymizationEnabled()
-    ? client.getAnonymizedData(response.data)
-    : response.data;
+    ? client.getAnonymizedData(data)
+    : data;
 }
 
 /**
@@ -79,7 +96,7 @@ async function handleCreateOrder(
   client: UpgatesClient,
   params: Record<string, any>
 ): Promise<any> {
-  const response = await client.post('/api/v2/orders', params);
+  const response = await client.post('/orders', params);
   return response.data;
 }
 
@@ -90,7 +107,7 @@ async function handleUpdateOrders(
   client: UpgatesClient,
   params: Record<string, any>
 ): Promise<any> {
-  const response = await client.put('/api/v2/orders', params);
+  const response = await client.put('/orders', params);
   return response.data;
 }
 
@@ -101,7 +118,7 @@ async function handleDeleteOrders(
   client: UpgatesClient,
   params: Record<string, any>
 ): Promise<any> {
-  const response = await client.delete('/api/v2/orders', buildQueryParams(params));
+  const response = await client.delete('/orders', buildQueryParams(params));
   return response.data;
 }
 
@@ -112,7 +129,7 @@ async function handleGetOrderHistory(
   client: UpgatesClient,
   params: Record<string, any>
 ): Promise<any> {
-  const response = await client.get(`/api/v2/orders/${params.order_number}/history`);
+  const response = await client.get(`/orders/${params.order_number}/history`);
 
   // Anonymize history data
   return client.isAnonymizationEnabled()
@@ -128,8 +145,8 @@ async function handleListOrderStatuses(
   params: Record<string, any>
 ): Promise<any> {
   const endpoint = params.id
-    ? `/api/v2/order-statuses/${params.id}`
-    : '/api/v2/order-statuses';
+    ? `/order-statuses/${params.id}`
+    : '/order-statuses';
 
   const response = await client.get(endpoint, buildQueryParams(params));
   return response.data;
@@ -142,7 +159,7 @@ async function handleCreateOrderStatus(
   client: UpgatesClient,
   params: Record<string, any>
 ): Promise<any> {
-  const response = await client.post('/api/v2/order-statuses', params);
+  const response = await client.post('/order-statuses', params);
   return response.data;
 }
 
@@ -157,15 +174,23 @@ async function handleListInvoices(
   validateDateRange(params.creation_time_from, params.creation_time_to);
 
   const endpoint = params.invoice_number
-    ? `/api/v2/invoices/${params.invoice_number}`
-    : '/api/v2/invoices';
+    ? `/invoices/${params.invoice_number}`
+    : '/invoices';
 
-  const response = await client.get(endpoint, buildQueryParams(params));
+  // Set defaults: page 1, 20 items
+  const defaults = {
+    page: 1,
+  };
+
+  const response = await client.get(endpoint, buildQueryParams(params, defaults));
+
+  // Optimize response for LLM
+  let data = optimizeListResponse(response.data, 'invoices');
 
   // Anonymize customer data in invoices
   return client.isAnonymizationEnabled()
-    ? client.getAnonymizedData(response.data)
-    : response.data;
+    ? client.getAnonymizedData(data)
+    : data;
 }
 
 /**
@@ -178,11 +203,20 @@ async function handleListProducts(
   validatePagination({ page: params.page });
 
   const endpoint = params.code
-    ? `/api/v2/products/${params.code}`
-    : '/api/v2/products';
+    ? `/products/${params.code}`
+    : '/products';
 
-  const response = await client.get(endpoint, buildQueryParams(params));
-  return response.data;
+  // Set defaults: page 1, active only, with variants
+  const defaults = {
+    page: 1,
+    active_yn: params.active_yn !== undefined ? params.active_yn : true,
+    variants_yn: params.variants_yn !== undefined ? params.variants_yn : false,
+  };
+
+  const response = await client.get(endpoint, buildQueryParams(params, defaults));
+
+  // Optimize response for LLM
+  return optimizeListResponse(response.data, 'products');
 }
 
 /**
@@ -195,8 +229,8 @@ async function handleListProductsSimple(
   validatePagination({ page: params.page });
 
   const endpoint = params.code
-    ? `/api/v2/products/${params.code}/simple`
-    : '/api/v2/products/simple';
+    ? `/products/${params.code}/simple`
+    : '/products/simple';
 
   const response = await client.get(endpoint, buildQueryParams(params));
   return response.data;
@@ -209,7 +243,7 @@ async function handleCreateProducts(
   client: UpgatesClient,
   params: Record<string, any>
 ): Promise<any> {
-  const response = await client.post('/api/v2/products', params);
+  const response = await client.post('/products', params);
   return response.data;
 }
 
@@ -220,7 +254,7 @@ async function handleUpdateProducts(
   client: UpgatesClient,
   params: Record<string, any>
 ): Promise<any> {
-  const response = await client.put('/api/v2/products', params);
+  const response = await client.put('/products', params);
   return response.data;
 }
 
@@ -232,8 +266,8 @@ async function handleDeleteProducts(
   params: Record<string, any>
 ): Promise<any> {
   const endpoint = params.code
-    ? `/api/v2/products/${params.code}`
-    : '/api/v2/products';
+    ? `/products/${params.code}`
+    : '/products';
 
   const response = await client.delete(endpoint, buildQueryParams(params));
   return response.data;
@@ -248,12 +282,22 @@ async function handleListCustomers(
 ): Promise<any> {
   validatePagination({ page: params.page });
 
-  const response = await client.get('/api/v2/customers', buildQueryParams(params));
+  // Set defaults: page 1, active customers only
+  const defaults = {
+    page: 1,
+    active_yn: params.active_yn !== undefined ? params.active_yn : true,
+    blocked_yn: params.blocked_yn !== undefined ? params.blocked_yn : false,
+  };
+
+  const response = await client.get('/customers', buildQueryParams(params, defaults));
+
+  // Optimize response for LLM
+  let data = optimizeListResponse(response.data, 'customers');
 
   // Always anonymize customer data
   return client.isAnonymizationEnabled()
-    ? client.getAnonymizedData(response.data)
-    : response.data;
+    ? client.getAnonymizedData(data)
+    : data;
 }
 
 /**
@@ -263,7 +307,7 @@ async function handleCreateCustomers(
   client: UpgatesClient,
   params: Record<string, any>
 ): Promise<any> {
-  const response = await client.post('/api/v2/customers', params);
+  const response = await client.post('/customers', params);
   return response.data;
 }
 
@@ -276,8 +320,16 @@ async function handleListCategories(
 ): Promise<any> {
   validatePagination({ page: params.page });
 
-  const response = await client.get('/api/v2/categories', buildQueryParams(params));
-  return response.data;
+  // Set defaults: page 1, active only
+  const defaults = {
+    page: 1,
+    active_yn: params.active_yn !== undefined ? params.active_yn : true,
+  };
+
+  const response = await client.get('/categories', buildQueryParams(params, defaults));
+
+  // Optimize response for LLM
+  return optimizeListResponse(response.data, 'categories');
 }
 
 /**
@@ -287,7 +339,7 @@ async function handleCreateCategories(
   client: UpgatesClient,
   params: Record<string, any>
 ): Promise<any> {
-  const response = await client.post('/api/v2/categories', params);
+  const response = await client.post('/categories', params);
   return response.data;
 }
 
@@ -301,8 +353,8 @@ async function handleListLabels(
   validatePagination({ page: params.page });
 
   const endpoint = params.id
-    ? `/api/v2/labels/${params.id}`
-    : '/api/v2/labels';
+    ? `/labels/${params.id}`
+    : '/labels';
 
   const response = await client.get(endpoint, buildQueryParams(params));
   return response.data;
@@ -318,8 +370,8 @@ async function handleListAvailabilities(
   validatePagination({ page: params.page });
 
   const endpoint = params.id
-    ? `/api/v2/availabilities/${params.id}`
-    : '/api/v2/availabilities';
+    ? `/availabilities/${params.id}`
+    : '/availabilities';
 
   const response = await client.get(endpoint, buildQueryParams(params));
   return response.data;
@@ -335,8 +387,8 @@ async function handleListManufacturers(
   validatePagination({ page: params.page });
 
   const endpoint = params.id
-    ? `/api/v2/manufacturers/${params.id}`
-    : '/api/v2/manufacturers';
+    ? `/manufacturers/${params.id}`
+    : '/manufacturers';
 
   const response = await client.get(endpoint, buildQueryParams(params));
   return response.data;
@@ -352,8 +404,8 @@ async function handleListParameters(
   validatePagination({ page: params.page });
 
   const endpoint = params.id
-    ? `/api/v2/parameters/${params.id}`
-    : '/api/v2/parameters';
+    ? `/parameters/${params.id}`
+    : '/parameters';
 
   const response = await client.get(endpoint, buildQueryParams(params));
   return response.data;
@@ -369,15 +421,30 @@ async function handleListCarts(
   validatePagination({ page: params.page });
 
   const endpoint = params.id
-    ? `/api/v2/carts/${params.id}`
-    : '/api/v2/carts';
+    ? `/carts/${params.id}`
+    : '/carts';
 
-  const response = await client.get(endpoint, buildQueryParams(params));
+  // Set defaults: page 1, recent carts only (last 7 days)
+  const defaults: Record<string, any> = {
+    page: 1,
+  };
+
+  // Default: carts from last 7 days if no filter specified
+  if (!params.creation_time_from && !params.id) {
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    defaults.creation_time_from = sevenDaysAgo.toISOString().split('T')[0];
+  }
+
+  const response = await client.get(endpoint, buildQueryParams(params, defaults));
+
+  // Optimize response for LLM
+  let data = optimizeListResponse(response.data, 'carts');
 
   // Anonymize cart data (contains customer info)
   return client.isAnonymizationEnabled()
-    ? client.getAnonymizedData(response.data)
-    : response.data;
+    ? client.getAnonymizedData(data)
+    : data;
 }
 
 /**
@@ -390,10 +457,16 @@ async function handleListVouchers(
   validatePagination({ page: params.page });
 
   const endpoint = params.voucher_code
-    ? `/api/v2/vouchers/${params.voucher_code}`
-    : '/api/v2/vouchers';
+    ? `/vouchers/${params.voucher_code}`
+    : '/vouchers';
 
-  const response = await client.get(endpoint, buildQueryParams(params));
+  // Set defaults: page 1, active vouchers only
+  const defaults = {
+    page: 1,
+    active_yn: params.active_yn !== undefined ? params.active_yn : true,
+  };
+
+  const response = await client.get(endpoint, buildQueryParams(params, defaults));
   return response.data;
 }
 
@@ -404,7 +477,7 @@ async function handleCreateVouchers(
   client: UpgatesClient,
   params: Record<string, any>
 ): Promise<any> {
-  const response = await client.post('/api/v2/vouchers', params);
+  const response = await client.post('/vouchers', params);
   return response.data;
 }
 
@@ -418,11 +491,17 @@ async function handleListShipments(
   validatePagination({ page: params.page });
 
   const endpoint = params.id
-    ? `/api/v2/shipments/${params.id}`
-    : '/api/v2/shipments';
+    ? `/shipments/${params.id}`
+    : '/shipments';
 
-  const response = await client.get(endpoint, buildQueryParams(params));
-  return response.data;
+  const defaults = {
+    page: 1,
+  };
+
+  const response = await client.get(endpoint, buildQueryParams(params, defaults));
+
+  // Optimize response for LLM (removes multi-language descriptions)
+  return optimizeListResponse(response.data, 'shipments');
 }
 
 /**
@@ -435,11 +514,17 @@ async function handleListPayments(
   validatePagination({ page: params.page });
 
   const endpoint = params.id
-    ? `/api/v2/payments/${params.id}`
-    : '/api/v2/payments';
+    ? `/payments/${params.id}`
+    : '/payments';
 
-  const response = await client.get(endpoint, buildQueryParams(params));
-  return response.data;
+  const defaults = {
+    page: 1,
+  };
+
+  const response = await client.get(endpoint, buildQueryParams(params, defaults));
+
+  // Optimize response for LLM (removes multi-language descriptions)
+  return optimizeListResponse(response.data, 'payments');
 }
 
 /**
@@ -450,8 +535,8 @@ async function handleListWebhooks(
   params: Record<string, any>
 ): Promise<any> {
   const endpoint = params.id
-    ? `/api/v2/webhooks/${params.id}`
-    : '/api/v2/webhooks';
+    ? `/webhooks/${params.id}`
+    : '/webhooks';
 
   const response = await client.get(endpoint);
   return response.data;
@@ -464,7 +549,7 @@ async function handleCreateWebhook(
   client: UpgatesClient,
   params: Record<string, any>
 ): Promise<any> {
-  const response = await client.post('/api/v2/webhooks', params);
+  const response = await client.post('/webhooks', params);
   return response.data;
 }
 
@@ -474,7 +559,7 @@ async function handleCreateWebhook(
 async function handleListWebhookEvents(
   client: UpgatesClient
 ): Promise<any> {
-  const response = await client.get('/api/v2/webhooks/events');
+  const response = await client.get('/webhooks/events');
   return response.data;
 }
 
@@ -484,7 +569,7 @@ async function handleListWebhookEvents(
 async function handleGetLanguages(
   client: UpgatesClient
 ): Promise<any> {
-  const response = await client.get('/api/v2/languages');
+  const response = await client.get('/languages');
   return response.data;
 }
 
@@ -494,7 +579,7 @@ async function handleGetLanguages(
 async function handleGetShopConfig(
   client: UpgatesClient
 ): Promise<any> {
-  const response = await client.get('/api/v2/config');
+  const response = await client.get('/config');
   return response.data;
 }
 
@@ -504,7 +589,7 @@ async function handleGetShopConfig(
 async function handleGetShopOwner(
   client: UpgatesClient
 ): Promise<any> {
-  const response = await client.get('/api/v2/owner');
+  const response = await client.get('/owner');
 
   // Anonymize owner business info
   return client.isAnonymizationEnabled()
@@ -518,7 +603,7 @@ async function handleGetShopOwner(
 async function handleGetApiStatus(
   client: UpgatesClient
 ): Promise<any> {
-  const response = await client.get('/api/v2/status');
+  const response = await client.get('/status');
   return response.data;
 }
 
@@ -528,7 +613,7 @@ async function handleGetApiStatus(
 async function handleListPricelists(
   client: UpgatesClient
 ): Promise<any> {
-  const response = await client.get('/api/v2/pricelists');
+  const response = await client.get('/pricelists');
   return response.data;
 }
 

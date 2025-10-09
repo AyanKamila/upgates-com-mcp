@@ -137,11 +137,19 @@ export class UpgatesClient {
       const status = error.response.status;
       const data = error.response.data as any;
 
+      // Log full error for debugging
+      console.error('[UpgatesClient] API Error:', {
+        status,
+        statusText: error.response.statusText,
+        data: data,
+        url: error.config?.url,
+        method: error.config?.method,
+      });
+
       // Authentication errors
       if (status === 401 || status === 403) {
-        throw new AuthenticationError(
-          data?.message || 'Authentication failed. Please check your API credentials.'
-        );
+        const message = data?.message || error.response.statusText || 'Authentication failed';
+        throw new AuthenticationError(message);
       }
 
       // Rate limiting
@@ -153,12 +161,19 @@ export class UpgatesClient {
         );
       }
 
+      // Method not allowed
+      if (status === 405) {
+        const message = data?.message || error.response.statusText || 'Method not allowed';
+        throw new NetworkError(
+          `${message} (${error.config?.method?.toUpperCase()} ${error.config?.url})`,
+          status,
+          data
+        );
+      }
+
       // Other API errors
-      throw new NetworkError(
-        data?.message || `API request failed with status ${status}`,
-        status,
-        data
-      );
+      const message = data?.message || error.response.statusText || `Request failed with status ${status}`;
+      throw new NetworkError(message, status, data);
     }
 
     // Network errors (no response)
