@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Assets/bootstrap-4.6.2/css/bootstrap.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+      body{
+        padding: 0;
+        margin: 0;
+        /*background-color: rgb(23, 39, 49);*/
+       }
+       #college 
+        {
+            background: radial-gradient(circle, rgba(0, 116, 101, 1) 0%, rgba(0, 4, 101, 1) 57%, rgba(69, 0, 83, 1) 99%);
+            padding: 0.5rem 2rem;
+        }
+        #logo h3 
+        {
+            font-weight: 600;
+        }
+        #header 
+        {
+            background: linear-gradient(90deg, rgb(29, 77, 116) 0%, rgb(1, 146, 175) 50%, rgba(35, 92, 138, 1) 100%);
+        }
+    
+      #second
+      {
+          background: linear-gradient(90deg, rgb(255, 42, 0) 0%, rgb(134, 0, 223) 50%, rgba(0,249,255,1) 100%);
+          height: 0.4rem;
+        }
+     
+        #main
+       {
+        background: radial-gradient(circle, rgb(12, 39, 46) 99%, rgb(6, 21, 26) 100%);
+        
+       }
+     
+       #ques
+       {
+        background: radial-gradient(circle, rgb(91, 35, 134) 0%, rgb(24, 8, 36) 100%);
+        border: 5px solid #bacaee;
+        margin: -3rem 0.3rem;
+        border-radius: 20px;
+       }
+     
+       .d-item
+      {
+        font-weight: 600;
+      }
+      #footer-banner
+      {
+          background: rgb(46,65,85);
+          background: radial-gradient(circle, rgba(28,39,51,1) 0%, rgb(50, 68, 90) 54%, rgb(28, 39, 51) 100%);
+          height: 15rem;
+      }
+      #footer
+      {
+          background: rgb(2, 4, 14);
+      }
+      #footer-banner #address p
+      {
+          text-align: center;
+      }
+      .Self
+      {
+          color: cyan;
+      }
+      .credit 
+      {
+          color: #79ff0b;
+      }
+      @media (max-width:590px)
+      {
+          #footer-banner #social i
+          {
+              font-size: 1rem;
+          }
+          #footer-banner #clg h4
+          {
+              font-size: 1.25rem;
+          }
+      }
+        @media (max-width:768px) 
+       {
+       
+        #logo h2
+        {
+          font-size: 1.3rem;
+        }
+      }
+      @media (max-width:576px) 
+     {
+      #ques h4
+      {
+        font-size: 1.5rem;
+      }
+    }
+    @media (max-width:458px) 
+     {
+      #ques h4
+      {
+        font-size: 1.3rem;
+      }
+    }
+    @media (max-width:868px) 
+     {
+      #logo h4
+      {
+        font-size: 1.75rem;
+      }
+    }
+    @media (max-width:576px) 
+     {
+      #logo h4
+      {
+        font-size: 1.3rem;
+      }
+    }
+    @media (max-width:460px) 
+     {
+      #logo h4
+      {
+        font-size: 1.1rem;
+      }
+    }
+    .modal-content 
+    {
+      background-color:  rgb(168, 180, 245);
+    }
+    .button
+    {
+      background: rgb(20, 32, 48);
+    }
+    .green
+    {
+      color: #79ff0b;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .modal-footer button:hover
+    {
+      color: #79ff0b;
+    }
+    .dropdown-item
+    {
+      font-weight: 600;
+    }
+    .dropdown-item:hover
+    {
+      background: #5c6a91;
+      color: white;
+    }
+    .dropdown-menu a{
+      text-decoration: none;
+    }
+    </style>
+</head>
+<body>
+
+  <section>
+    <div class="container-fluid">
+        <div class="row text-center" id="college">
+            <div class="col-md" id="logo">
+                <img src="Assets/img/R.png" alt="clg_logo" style="width: 50px; height:50px;">
+                <h3 class="text-white mt-2">Contai College of Learning & Management Science</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="second">
+      <div class="container-fluid" >
+        <div class="row"  >
+          <div class="col-md-12"></div>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="container-fluid ">
+        <div class="row" id="main">
+          <div class="col-md-12 text-center pt-5">
+            <img src="Assets/img/checkmark.gif" style="height: 170px; border-radius: 10%;" alt="">
+          </div>
+          <div class="col-md-12 text-center">
+            <div class="container-fluid">
+              <div class="row ">
+                <div class="container" id="qbox">
+                  <div class="col-md-12 p-2 mt-5" id="ques">
+                      <h4 class="text-center text-white p-1 ml-auto"><span style="color: rgb(0, 247, 255);">Name: </span>Ayan Kamila</h4>
+                      <h4 class="text-center text-white p-1 ml-auto"><span style="color: rgb(0, 247, 255);">Subject: </span>Python Programming</h4>
+                      <h4 class="text-center text-white p-1 ml-auto"><span style="color: rgb(255, 174, 0);">Score: </span>00</h4>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 mt-5">
+            <div class="text-center w-100 p-4" >
+              <a href="index.html"><button type="button" class="btn btn-sm btn-info text-white ">Go to Homepage</button></a>
+            </div>
+            
+            <div class="text-center m-2" >
+              <marquee behavior="scroll" scrollamount="10" direction="right"><h4 class="text-warning" >Better Luck Next Time!</h4></marquee>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Change Password Modal -->
+<section >
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title " id="exampleModalLabel">Change Your Password</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" style="color: red;font-size:30px">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form onclick="return form_check();">
+            <div class="form-group">
+              <label for="change-password" class="col-form-label text-dark drop-font">New Password:</label>
+              <input type="password" class="form-control" id="change-password">
+            </div>
+            <div class="form-group">
+              <label for="confirm-password" class="col-form-label text-dark drop-font">Confirm Password:</label>
+              <input type="password" class="form-control" id="confirm-password">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn button green">Change</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+<section id="footer">
+  <div class="container-fluid" >
+    <div class="row">
+      <div class="col-sm-6">
+        <h6 class="text-white text-center p-3">&copy; Copyright 2024 CCLMS MANAGEMENT COLLEGE <span class="text-info">|</span> ALL RIGHT RESERVED</h6>
+      </div>
+      <div class="col-sm-6">
+        <h6 class="text-light text-center ml-3 p-3">Designed by <span class="credit">AYAN KAMILA</span> | <span class="Self">BCA 22</span> | Developed by <span class="text-info">CCLMS IT TEAM</span></h5>
+      </div>
+    </div>
+  </div>
+</section>
+    
+  <!-- form-validation for change password modal -->
+  <script type="text/javascript">
+    function form_check()
+    {
+        let upass=document.getElementById("upass");
+        let cpass=document.getElementById("cpass");
+        if(upass.value=='')
+        {
+            alert("Please enter your Password");
+            upass.focus();
+            upass.style.border="2px solid red";
+            return false;
+        }
+        else if(cpass.value=='')
+        {
+            alert("Please enter your confirm password");
+            cpass.focus();
+            cpass.style.border="2px solid red";
+            return false;
+        }
+        else if(upass.value!=cpass.value)
+        {
+            alert("Password and Confirm Password don't match");
+            cpass.focus();
+            cpass.style.border="2px solid red";
+            return false;
+        }
+        else{
+            alert("Password Changed Successfully")
+            return true;
+        }
+    }
+</script>
+  <script type="text/javascript" src="Assets/js/jquery-3.7.0.min.js"></script>  
+  <script type="text/javascript" src="Assets/bootstrap-4.6.2/js/bootstrap.bundle.min.js"></script>  
+</body>
+</html>

@@ -1,0 +1,2297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Assets/bootstrap-4.6.2/css/bootstrap.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+      body
+      {
+        padding: 0;
+        margin: 0;
+        /*background-color: rgb(23, 39, 49);*/
+      }
+    
+      #college
+      {
+        background: radial-gradient(circle, rgb(3, 102, 89) 0%, rgba(0,4,101,1) 57%, rgba(69,0,83,1) 99%);   
+      }
+      #logo h3
+      {
+        font-size: 1.6rem ;
+        text-transform: capitalize;
+      }
+  
+      #drop-bg
+      {
+        background:linear-gradient(0deg, rgba(26,30,48,1) 18%, rgba(61,75,106,1) 95%);
+      }
+      #logo h3   
+      {
+        font-weight: 600;
+      }
+      .dropdown-item:hover
+      {
+        background: #5c6a91;
+      }
+      .dropdown-menu a{
+        text-decoration: none;
+      }
+      @media (min-width:992px) 
+      {
+        #little
+        {
+          margin-left: -3rem;
+        }
+        #logo h3
+        {
+          margin-left: -1rem;
+        }
+      }
+      @media (max-width:768px) 
+      {
+        #logo h3
+        {
+          text-align: center;
+        }
+        .new
+        {
+          text-align: center;
+        }
+        #logo h3
+        {
+          font-size: 1.1rem;
+        }
+      }
+      @media (max-width:992px) 
+      {
+        .new
+        {
+          text-align: center;
+        }
+      }
+      @media (max-width:868px) 
+      {
+        #logo h3
+        {
+          font-size: 1.5rem;
+          text-align: center;
+        }
+      }
+      @media (max-width:869px) 
+      {
+        #logo h3
+        {
+          font-size: 1.5rem;
+          text-align: center;
+        }
+      }
+      @media (max-width:569px) 
+      {
+        #logo h3
+        {
+          font-size: 1.2rem;
+          text-align: center;
+      
+        }
+      }
+
+      .dropdown-item
+      {
+        font-weight: 600;
+      }
+      #header h5{
+        letter-spacing: 1.5px;
+        word-spacing: 1px;
+      }
+      #main
+      {
+        background: #efeeee;
+      }
+      
+      .ans
+      {
+        background: radial-gradient(circle, rgba(187,195,255,1) 0%, rgba(84,104,214,1) 100%);
+        border: 5px solid #16213b;
+        border-radius: 5px;
+        margin:1.5px ;
+      }
+      .mark 
+        {
+            float: left;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            border-radius: 5px;
+            background: rgb(5, 114, 157);
+        }
+       .mark h5
+       {
+         text-decoration: none!important;
+         margin: 0;
+         padding: 2px;
+        }
+       #option
+       {
+            margin: 0.5rem 0 0;
+       }
+       #coldiv
+       {
+        border-right: 5px solid red;
+       }
+       .answerlabel
+       {
+        letter-spacing: 1.2px;
+         padding-left: 10px;
+         font-weight: 700;
+         color: rgb(0, 0, 0);
+       }
+       .accordion
+       {
+        padding: 3rem 9rem;
+       }
+       #footer-banner
+       {
+          background: rgb(46,65,85);
+          background: radial-gradient(circle, rgba(28,39,51,1) 0%, rgb(50, 68, 90) 54%, rgb(28, 39, 51) 100%);
+          height: 15rem;
+        }
+      #footer
+      {
+          background: rgb(2, 4, 14);
+      }
+      #footer-banner #address p
+      {
+          text-align: center;
+      }
+      .Self
+      {
+          color: cyan;
+      }
+      @media (max-width:590px)
+      {
+        #footer-banner #social i
+        {
+            font-size: 1rem;  
+        }
+        #footer-banner #clg h4
+        {
+            font-size: 1.25rem;
+        }
+      }
+      .credit
+      {
+          color: rgb(191, 255, 0);
+      }
+      
+        @media (max-width:768px) 
+        {
+            .new
+            {
+                text-align: center;
+            }
+            #logo h2
+            {
+                font-size: 1.3rem;
+                text-align: center;
+            }
+        }
+        @media (max-width:460px) 
+        {
+          .right span,.wrong span
+          {
+            margin-top: 20px;
+            padding: 3px;
+            font-size: 10px;
+            height: 20px;
+            width: 20px;
+          
+          }
+        }
+        @media (max-width:868px) 
+        {
+            #logo h2
+            {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+        }
+        @media (max-width:992px) 
+        {
+            .new
+            {
+                text-align: center;
+            }
+        }
+        .modal-content 
+        {
+          background-color:  rgb(168, 180, 245);
+        }
+        .button
+        {
+          background: rgb(20, 32, 48);
+        }
+        .green
+        {
+          color: #79ff0b;
+          font-weight: 700;
+          letter-spacing: 1px;
+        }
+        .modal-footer button:hover
+        {
+          color: #79ff0b;
+        }
+        .dropdown-item
+        {
+          font-weight: 600;
+        }
+        .dropdown-item:hover
+        {
+          background: #5c6a91;
+          color: white;
+        }
+        .dropdown-menu a
+        {
+          text-decoration: none;
+        }
+       
+        .right span,.wrong span
+        {
+          margin-top: 10px;
+          padding: 3px;
+          font-size: 18px;
+          border-radius: 50%;
+          color: #fff;
+          height: 30px;
+          width: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .right span i{
+          margin-top: 2px;
+        }
+        .wrong span i{
+          margin-top: 2px;
+        }
+        .wrong span{
+          background: rgb(208, 0, 0);
+        }
+        .right span{
+          background-color: rgb(18, 124, 18);
+        }
+        @media (max-width:460px) 
+        {
+          .right span,.wrong span
+          {
+            margin-top: 10px;
+            font-size: 17px;
+            padding: 3px;
+            height: 25px;
+            width: 25px;
+          
+          }
+        }
+        #qbox
+        {
+          margin-top: 1rem;
+          border-bottom: 3px solid rgb(24, 51, 68);
+        }
+        #qbox:last-child
+        {
+            border-bottom: none;
+        }
+        #ques h5{
+          font-size: 1.10rem;
+        }
+        #ques,#option h5
+        {
+          font-size: 1.10rem;
+        }
+
+    </style>
+</head>
+<body>
+  <section>
+    <div class="container-fluid">
+        <div class="row" id="college">
+            <div class="col-sm-12 col-md-12 col-lg-1 mt-2 text-center" id="logo">
+                <img src="Assets/img/R.png" alt="clg_logo" style="width: 40px; height:40px; margin-top: 5px;">
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-8 " id="logo">
+                <h3 class="text-white  mt-3">Contai College Of Learning & Management Science</h3>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3 " id="logo">
+                <div class="new">
+                    <div class="btn-group  p-3">
+                        <button type="button" class="btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                          <i class="fa-sharp fa-solid fa-book"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right drop-bg" id="drop-bg">
+                          <h6 class="text-center dp-header">Study Material</h6>
+                          <button class="dropdown-item text-white" type="button">Notes</button>
+                          <button class="dropdown-item text-white" type="button">Another Info</button>
+                          <button class="dropdown-item text-white" type="button">Something else</button>
+                        </div>
+                    </div>
+      
+                    <div class="btn-group p-3">
+                        <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                          <!-- <i class="fa-solid fa-user" style="color: black;"></i> -->
+                          Welcome <span style="color:  rgb(0, 238, 255);font-weight: 500;">AYAN</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" id="drop-bg">
+                          <a href="Student_profile.html"><button class="dropdown-item text-white" type="button">My Profile</button></a>
+                          <button class="dropdown-item text-white" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Change Password</button>
+                          <button class="dropdown-item text-white" type="button">Log Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  
+<section>
+  <div class="container-fluid">
+    <div class="row" id="main">
+      <div class="col-md-12">
+        <div class="row mt-3">
+          <!-- code for countdown timer -->
+          <div class="timer_progrss">
+
+              <div class="d-flex justify-content-center align-items-center">
+                  <div class="my-3 mx-3" id="progress_1" data-bs-toggle="circle-progress"></div>
+                  <!-- <h4 class="countdown text-danger"></h4> -->
+              </div>
+          </div>
+          <!------------------------------------ 1st question ---------------------------------------------->
+          <div class="container" id="qbox">
+              <!--for lock the question answer div----------------->
+              <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+                  <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                      Worry. Exam has been submitted automatically.</h2>
+              </div>
+
+              
+              <div class="col-12" id="ques">
+                  <h5 class="text-left py-1 ml-auto">
+                      <span class="mark mr-4" style="width:40px;height:100%;">
+                          <h5>Q1</h5>
+                      </span>
+                      <span style="width: calc(100% - 60px);display: table-cell;">
+                          Who invented Python?
+                          Who invented Python?
+                          Who invented Python?
+                          Who invented Python?
+                          Who invented Python?
+                          Who invented Python?
+                          Who invented Python?
+                          Who invented Python?
+                          Who invented Python?
+                          Who invented Python?
+                          Who invented Python?
+                          Who invented Python?
+                      </span>
+                  </h5>
+              </div>
+
+                <div class="row p-2">
+                  <div class="col-md-6 col-lg-6">
+                      <div class="w-100" id="option" style="float: left;">
+                          <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                              <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                              <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                              </span>
+                          </h5>
+                          <span class="last right">
+                            <span>
+                              <i class="fa fa-check"></i>
+                            </span>
+                              
+                          </span>
+                      </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-6">
+                      <div class="w-100" id="option" style="float: left;">
+                          <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                              <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                              <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling  
+                              </span>
+                          </h5>
+                          <span class="last wrong">
+                            <span>
+                              <i class="fa fa-close"></i>
+                            </span>
+                            
+                          </span>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                      <div class="  w-100" id="option" style="float: left;">
+                          <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                              <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                              <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                              </span>
+                          </h5>
+                          <span class="last">
+                             
+                          </span>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                      <div class="w-100" id="option" style="float: left;">
+                          <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                              <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                              <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                                  James Gosling 
+                              </span>
+                          </h5>
+                          <span class="last">
+                        
+                          </span>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+
+
+<!----------------------------------------- 2nd question ------------------------------------------------>
+        <div class="container" id="qbox">
+          <div class="container" id="qbox">
+            <!--for lock the question answer div----------------->
+            <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                aria-valuemax="100"
+                style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+                <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                    Worry. Exam has been submitted automatically.</h2>
+            </div>
+
+            <!-- 1st question -->
+            <div class="col-12" id="ques">
+                <h5 class="text-left py-1 ml-auto">
+                    <span class="mark mr-4" style="width:40px;height:100%;">
+                        <h5>Q2</h5>
+                    </span>
+                    <span style="width: calc(100% - 60px);display: table-cell;">
+                        Who invented Python?
+                        
+                    </span>
+                </h5>
+            </div>
+
+              <div class="row p-2">
+                <div class="col-md-6 col-lg-6">
+                    <div class="w-100" id="option" style="float: left;">
+                        <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                            <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                            <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                                James Gosling 
+                                
+                            </span>
+                        </h5>
+                        <span class="last right">
+                          <span>
+                            <i class="fa fa-check"></i>
+                          </span>
+                            
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-6">
+                    <div class="w-100" id="option" style="float: left;">
+                        <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                            <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                            <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                                James Gosling 
+                                
+                            </span>
+                        </h5>
+                        <span class="last wrong">
+                          <span>
+                            <i class="fa fa-close"></i>
+                          </span>
+                          
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="w-100" id="option" style="float: left;">
+                        <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                            <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                            <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                                James Gosling 
+                                
+                            </span>
+                        </h5>
+                        <span class="last">
+                           
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="w-100" id="option" style="float: left;">
+                        <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                            <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                            <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                                James Gosling 
+                                
+                            </span>
+                        </h5>
+                        <span class="last">
+                      
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!----------------------------------------- 3rd question ------------------------------------------------>
+        <div class="container" id="qbox">
+          <!--for lock the question answer div----------------->
+          <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+              aria-valuemax="100"
+              style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+              <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                  Worry. Exam has been submitted automatically.</h2>
+          </div>
+
+          
+          <div class="col-12" id="ques">
+              <h5 class="text-left py-1 ml-auto">
+                  <span class="mark mr-4" style="width:40px;height:100%;">
+                      <h5>Q3</h5>
+                  </span>
+                  <span style="width: calc(100% - 60px);display: table-cell;">
+                      Who invented Python?
+                      Who invented Python?
+                      Who invented Python?
+                      Who invented Python?
+                      Who invented Python?
+                      Who invented Python?
+                      Who invented Python?
+                      Who invented Python?
+                      Who invented Python?
+                      Who invented Python?
+                      Who invented Python?
+                      Who invented Python?
+                  </span>
+              </h5>
+          </div>
+
+            <div class="row p-2">
+              <div class="col-md-6 col-lg-6">
+                  <div class="w-100" id="option" style="float: left;">
+                      <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                          <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                          <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                          </span>
+                      </h5>
+                      <span class="last right">
+                        <span>
+                          <i class="fa fa-check"></i>
+                        </span>
+                          
+                      </span>
+                  </div>
+              </div>
+
+              <div class="col-md-6 col-lg-6">
+                  <div class="w-100" id="option" style="float: left;">
+                      <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                          <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                          <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling  
+                          </span>
+                      </h5>
+                      <span class="last wrong">
+                        <span>
+                          <i class="fa fa-close"></i>
+                        </span>
+                        
+                      </span>
+                  </div>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                  <div class="w-100" id="option" style="float: left;">
+                      <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                          <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                          <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                          </span>
+                      </h5>
+                      <span class="last">
+                         
+                      </span>
+                  </div>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                  <div class="w-100" id="option" style="float: left;">
+                      <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                          <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                          <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                              James Gosling 
+                          </span>
+                      </h5>
+                      <span class="last">
+                    
+                      </span>
+                  </div>
+              </div>
+            </div>
+      </div>
+
+      <!------------------------------------ 4th question ---------------------------------------------->
+      <div class="container" id="qbox">
+        <!--for lock the question answer div----------------->
+        <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"
+            style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+            <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                Worry. Exam has been submitted automatically.</h2>
+        </div>
+
+        
+        <div class="col-12" id="ques">
+            <h5 class="text-left py-1 ml-auto">
+                <span class="mark mr-4" style="width:40px;height:100%;">
+                    <h5>Q4</h5>
+                </span>
+                <span style="width: calc(100% - 60px);display: table-cell;">
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                </span>
+            </h5>
+        </div>
+
+          <div class="row p-2">
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last right">
+                      <span>
+                        <i class="fa fa-check"></i>
+                      </span>
+                        
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling  
+                        </span>
+                    </h5>
+                    <span class="last wrong">
+                      <span>
+                        <i class="fa fa-close"></i>
+                      </span>
+                      
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                       
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                  
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!------------------------------------ 5th question ---------------------------------------------->
+      <div class="container" id="qbox">
+        <!--for lock the question answer div----------------->
+        <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"
+            style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+            <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                Worry. Exam has been submitted automatically.</h2>
+        </div>
+
+        
+        <div class="col-12" id="ques">
+            <h5 class="text-left py-1 ml-auto">
+                <span class="mark mr-4" style="width:40px;height:100%;">
+                    <h5>Q5</h5>
+                </span>
+                <span style="width: calc(100% - 60px);display: table-cell;">
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                </span>
+            </h5>
+        </div>
+
+          <div class="row p-2">
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last right">
+                      <span>
+                        <i class="fa fa-check"></i>
+                      </span>
+                        
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling  
+                        </span>
+                    </h5>
+                    <span class="last wrong">
+                      <span>
+                        <i class="fa fa-close"></i>
+                      </span>
+                      
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                       
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                  
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!------------------------------------ 6th question ---------------------------------------------->
+      <div class="container" id="qbox">
+        <!--for lock the question answer div----------------->
+        <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"
+            style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+            <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                Worry. Exam has been submitted automatically.</h2>
+        </div>
+
+        
+        <div class="col-12" id="ques">
+            <h5 class="text-left py-1 ml-auto">
+                <span class="mark mr-4" style="width:40px;height:100%;">
+                    <h5>Q6</h5>
+                </span>
+                <span style="width: calc(100% - 60px);display: table-cell;">
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                </span>
+            </h5>
+        </div>
+
+          <div class="row p-2">
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last right">
+                      <span>
+                        <i class="fa fa-check"></i>
+                      </span>
+                        
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling  
+                        </span>
+                    </h5>
+                    <span class="last wrong">
+                      <span>
+                        <i class="fa fa-close"></i>
+                      </span>
+                      
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                       
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                  
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+      <!------------------------------------ 7th question ---------------------------------------------->
+      <div class="container" id="qbox">
+        <!--for lock the question answer div----------------->
+        <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"
+            style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+            <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                Worry. Exam has been submitted automatically.</h2>
+        </div>
+
+        
+        <div class="col-12" id="ques">
+            <h5 class="text-left py-1 ml-auto">
+                <span class="mark mr-4" style="width:40px;height:100%;">
+                    <h5>Q7</h5>
+                </span>
+                <span style="width: calc(100% - 60px);display: table-cell;">
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                </span>
+            </h5>
+        </div>
+
+          <div class="row p-2">
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last right">
+                      <span>
+                        <i class="fa fa-check"></i>
+                      </span>
+                        
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class=" w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling  
+                        </span>
+                    </h5>
+                    <span class="last wrong">
+                      <span>
+                        <i class="fa fa-close"></i>
+                      </span>
+                      
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                       
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                  
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!------------------------------------ 8th question ---------------------------------------------->
+      <div class="container" id="qbox">
+        <!--for lock the question answer div----------------->
+        <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"
+            style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+            <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                Worry. Exam has been submitted automatically.</h2>
+        </div>
+
+        
+        <div class="col-12" id="ques">
+            <h5 class="text-left py-1 ml-auto">
+                <span class="mark mr-4" style="width:40px;height:100%;">
+                    <h5>Q8</h5>
+                </span>
+                <span style="width: calc(100% - 60px);display: table-cell;">
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                </span>
+            </h5>
+        </div>
+
+          <div class="row p-2">
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last right">
+                      <span>
+                        <i class="fa fa-check"></i>
+                      </span>
+                        
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling  
+                        </span>
+                    </h5>
+                    <span class="last wrong">
+                      <span>
+                        <i class="fa fa-close"></i>
+                      </span>
+                      
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                       
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class=" w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                  
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!------------------------------------ 9th question ---------------------------------------------->
+      <div class="container" id="qbox">
+        <!--for lock the question answer div----------------->
+        <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"
+            style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+            <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                Worry. Exam has been submitted automatically.</h2>
+        </div>
+
+        
+        <div class="col-12" id="ques">
+            <h5 class="text-left py-1 ml-auto">
+                <span class="mark mr-4" style="width:40px;height:100%;">
+                    <h5>Q9</h5>
+                </span>
+                <span style="width: calc(100% - 60px);display: table-cell;">
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                </span>
+            </h5>
+        </div>
+
+          <div class="row p-2">
+            <div class="col-md-6 col-lg-6">
+                <div class=" w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last right">
+                      <span>
+                        <i class="fa fa-check"></i>
+                      </span>
+                        
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling  
+                        </span>
+                    </h5>
+                    <span class="last wrong">
+                      <span>
+                        <i class="fa fa-close"></i>
+                      </span>
+                      
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                       
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                  
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!------------------------------------ 10th question ---------------------------------------------->
+      <div class="container" id="qbox">
+        <!--for lock the question answer div----------------->
+        <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"
+            style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+            <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                Worry. Exam has been submitted automatically.</h2>
+        </div>
+
+        
+        <div class="col-12" id="ques">
+            <h5 class="text-left py-1 ml-auto">
+                <span class="mark mr-4" style="width:40px;height:100%;">
+                    <h5>Q10</h5>
+                </span>
+                <span style="width: calc(100% - 60px);display: table-cell;">
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                </span>
+            </h5>
+        </div>
+
+          <div class="row p-2">
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last right">
+                      <span>
+                        <i class="fa fa-check"></i>
+                      </span>
+                        
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class=" w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling  
+                        </span>
+                    </h5>
+                    <span class="last wrong">
+                      <span>
+                        <i class="fa fa-close"></i>
+                      </span>
+                      
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                       
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                  
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!------------------------------------ 11th question ---------------------------------------------->
+      <div class="container" id="qbox">
+        <!--for lock the question answer div----------------->
+        <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"
+            style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+            <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                Worry. Exam has been submitted automatically.</h2>
+        </div>
+
+        
+        <div class="col-12" id="ques">
+            <h5 class="text-left py-1 ml-auto">
+                <span class="mark mr-4" style="width:40px;height:100%;">
+                    <h5>Q11</h5>
+                </span>
+                <span style="width: calc(100% - 60px);display: table-cell;">
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                </span>
+            </h5>
+        </div>
+
+          <div class="row p-2">
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last right">
+                      <span>
+                        <i class="fa fa-check"></i>
+                      </span>
+                        
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling  
+                        </span>
+                    </h5>
+                    <span class="last wrong">
+                      <span>
+                        <i class="fa fa-close"></i>
+                      </span>
+                      
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                       
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                  
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!------------------------------------ 12th question ---------------------------------------------->
+      <div class="container" id="qbox">
+        <!--for lock the question answer div----------------->
+        <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"
+            style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+            <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                Worry. Exam has been submitted automatically.</h2>
+        </div>
+
+        
+        <div class="col-12" id="ques">
+            <h5 class="text-left py-1 ml-auto">
+                <span class="mark mr-4" style="width:40px;height:100%;">
+                    <h5>Q12</h5>
+                </span>
+                <span style="width: calc(100% - 60px);display: table-cell;">
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                </span>
+            </h5>
+        </div>
+
+          <div class="row p-2">
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last right">
+                      <span>
+                        <i class="fa fa-check"></i>
+                      </span>
+                        
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling  
+                        </span>
+                    </h5>
+                    <span class="last wrong">
+                      <span>
+                        <i class="fa fa-close"></i>
+                      </span>
+                      
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                       
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                  
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!------------------------------------ 13th question ---------------------------------------------->
+      <div class="container" id="qbox">
+        <!--for lock the question answer div----------------->
+        <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"
+            style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+            <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                Worry. Exam has been submitted automatically.</h2>
+        </div>
+
+        
+        <div class="col-12" id="ques">
+            <h5 class="text-left py-1 ml-auto">
+                <span class="mark mr-4" style="width:40px;height:100%;">
+                    <h5>Q13</h5>
+                </span>
+                <span style="width: calc(100% - 60px);display: table-cell;">
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                </span>
+            </h5>
+        </div>
+
+          <div class="row p-2">
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last right">
+                      <span>
+                        <i class="fa fa-check"></i>
+                      </span>
+                        
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class=" w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling  
+                        </span>
+                    </h5>
+                    <span class="last wrong">
+                      <span>
+                        <i class="fa fa-close"></i>
+                      </span>
+                      
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class=" w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                       
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class=" w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                  
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+      <!------------------------------------ 14th question ---------------------------------------------->
+      <div class="container" id="qbox">
+        <!--for lock the question answer div----------------->
+        <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"
+            style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+            <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                Worry. Exam has been submitted automatically.</h2>
+        </div>
+
+        
+        <div class="col-12" id="ques">
+            <h5 class="text-left py-1 ml-auto">
+                <span class="mark mr-4" style="width:40px;height:100%;">
+                    <h5>Q14</h5>
+                </span>
+                <span style="width: calc(100% - 60px);display: table-cell;">
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                </span>
+            </h5>
+        </div>
+
+          <div class="row p-2">
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last right">
+                      <span>
+                        <i class="fa fa-check"></i>
+                      </span>
+                        
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling  
+                        </span>
+                    </h5>
+                    <span class="last wrong">
+                      <span>
+                        <i class="fa fa-close"></i>
+                      </span>
+                      
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                       
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                  
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!------------------------------------ 15th question ---------------------------------------------->
+      <div class="container" id="qbox">
+        <!--for lock the question answer div----------------->
+        <div class="" id="lock" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"
+            style="background: #233a56;width: 100%;position: absolute;top: 0;left: 0;display: none;z-index: 9;color: #ffffff;">
+            <h2 id="locktext"  style="display: none;text-align:center;"> Your Times Up.<br />Don't
+                Worry. Exam has been submitted automatically.</h2>
+        </div>
+
+        
+        <div class="col-12" id="ques">
+            <h5 class="text-left py-1 ml-auto">
+                <span class="mark mr-4" style="width:40px;height:100%;">
+                    <h5>Q15</h5>
+                </span>
+                <span style="width: calc(100% - 60px);display: table-cell;">
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                    Who invented Python?
+                </span>
+            </h5>
+        </div>
+
+          <div class="row p-2">
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">A:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last right">
+                      <span>
+                        <i class="fa fa-check"></i>
+                      </span>
+                        
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class=" w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">B:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling  
+                        </span>
+                    </h5>
+                    <span class="last wrong">
+                      <span>
+                        <i class="fa fa-close"></i>
+                      </span>
+                      
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class=" w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">C:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                       
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="w-100" id="option" style="float: left;">
+                    <h5 class="text-left  p-2" style="width:calc(100% - 50px);display:inline;float: left;">
+                        <span style="color: rgb(0, 56, 85);width:25px;height:100%;margin-right:5px;float: left;">D:</span>
+                        <span style="width: calc(100% - 30px);display: table-cell;float:left;">
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                            James Gosling 
+                        </span>
+                    </h5>
+                    <span class="last">
+                  
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+      
+
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- Change Password Modal -->
+ <section >
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title " id="exampleModalLabel">Change Your Password</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" style="color: red;font-size:30px">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form onclick="return form_check();">
+            <div class="form-group">
+              <label for="change-password" class="col-form-label text-dark drop-font">New Password:</label>
+              <input type="password" class="form-control" id="change-password">
+            </div>
+            <div class="form-group">
+              <label for="confirm-password" class="col-form-label text-dark drop-font">Confirm Password:</label>
+              <input type="password" class="form-control" id="confirm-password">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn button green">Change</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+
+    <!-- Footer section-->
+
+    <section id="footer">
+      <div class="container-fluid" >
+        <div class="row">
+          <div class="col-sm-6">
+            <h6 class="text-white text-center p-3">&copy; Copyright 2024 CCLMS MANAGEMENT COLLEGE <span class="text-info">|</span> ALL RIGHT RESERVED</h6>
+          </div>
+          <div class="col-sm-6">
+            <h6 class="text-light text-center ml-3 p-3">Designed by <span class="credit">AYAN KAMILA</span> | <span class="Self">BCA 22</span> | Developed by <span class="text-info">CCLMS IT TEAM</span></h5>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- form-validation for change password modal -->
+  <script type="text/javascript">
+    function form_check()
+    {
+        let upass=document.getElementById("upass");
+        let cpass=document.getElementById("cpass");
+        if(upass.value=='')
+        {
+            alert("Please enter your Password");
+            upass.focus();
+            upass.style.border="2px solid red";
+            return false;
+        }
+        else if(cpass.value=='')
+        {
+            alert("Please enter your confirm password");
+            cpass.focus();
+            cpass.style.border="2px solid red";
+            return false;
+        }
+        else if(upass.value!=cpass.value)
+        {
+            alert("Password and Confirm Password don't match");
+            cpass.focus();
+            cpass.style.border="2px solid red";
+            return false;
+        }
+        else{
+            alert("Password Changed Successfully")
+            return true;
+        }
+    }
+</script>
+  <script type="text/javascript" src="Assets/js/jquery-3.7.0.min.js"></script>  
+  <script type="text/javascript" src="Assets/bootstrap-4.6.2/js/bootstrap.bundle.min.js"></script>  
+</body>
+</html>
